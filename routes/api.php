@@ -20,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/chapters', ChapterController::class);
-Route::apiResource('/books', BookController::class);
+Route::get('books/dropdown', [BookController::class, 'dropDownAllBooks'])->name('books.dropdown');
+
+Route::apiResource('chapters', ChapterController::class);
+Route::apiResource('books', BookController::class);

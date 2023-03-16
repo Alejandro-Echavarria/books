@@ -18,6 +18,7 @@ class ChapterFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
+            'book_id' => rand(1, 3),
         ];
     }
 }

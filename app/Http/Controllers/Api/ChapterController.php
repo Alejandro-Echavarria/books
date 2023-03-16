@@ -12,7 +12,7 @@ class ChapterController extends Controller
 {
     public function index()
     {
-        return ChapterResource::collection(Chapter::paginate(2));
+        return ChapterResource::collection(Chapter::with(['book'])->paginate(2));
     }
 
     public function store(StoreChapterRequest $request)
