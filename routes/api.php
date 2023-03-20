@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\ChapterController;
 use Illuminate\Http\Request;
@@ -24,3 +25,4 @@ Route::get('books/dropdown', [BookController::class, 'dropDownAllBooks'])->name(
 
 Route::apiResource('chapters', ChapterController::class);
 Route::apiResource('books', BookController::class);
+Route::apiResource('authors', AuthorController::class);
