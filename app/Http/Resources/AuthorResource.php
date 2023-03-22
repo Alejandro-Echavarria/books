@@ -15,8 +15,9 @@ class AuthorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
+            'id'    => $this->id,
+            'name'  => $this->name,
+            'books' => DropdownBookResource::collection($this->whenLoaded('books')),
         ];
     }
 }

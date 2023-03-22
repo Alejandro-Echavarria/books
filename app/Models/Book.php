@@ -15,8 +15,17 @@ class Book extends Model
         'date_published',
     ];
 
-
     protected $casts = [
         'date_published' => 'date',
     ];
+
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class);
+    }
+
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
 }

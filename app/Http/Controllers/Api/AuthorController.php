@@ -12,7 +12,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        return AuthorResource::collection(Author::all());
+        return AuthorResource::collection(Author::with(['books'])->get());
     }
 
     public function store(StoreAuthorRequest $request)
