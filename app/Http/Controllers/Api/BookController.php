@@ -11,6 +11,41 @@ use App\Http\Resources\DropdownBookResource;
 
 class BookController extends Controller
 {
+    /**
+     * @OA\Get(
+     *   path="/books",
+     *   operationId="indexBooks",
+     *   tags={"Books"},
+     *   summary="Listado de libros",
+     *   @OA\Response(
+     *     response=200,
+     *     description="Listado de libros",
+     *     @OA\JsonContent(
+     *             @OA\Property(
+     *                  type="array",
+     *                  property="data",
+     *                  @OA\Items(
+     *                      type="object",
+     *                      @OA\Property(
+     *                          property="id",
+     *                          type="integer",
+     *                          example="1"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="name",
+     *                          type="string",
+     *                          example="Harry Potter"
+     *                      )
+     *                  )
+     *             ),
+     *          )
+     *   ),
+     *   @OA\Response(
+     *     response="404",
+     *     description="Pagina no encontrada"
+     *   )
+     * )
+     */
     public function index()
     {
         return BookResource::collection(Book::with(['authors', 'chapters'])->get());
