@@ -48,7 +48,12 @@ class BookController extends Controller
      */
     public function index()
     {
-        return BookResource::collection(Book::with(['authors', 'chapters'])->get());
+        $books = Book::included()
+            ->filter()
+            ->sort()
+            ->getOrPaginate();
+
+        return BookResource::collection($books);
     }
 
     public function dropDownAllBooks()
