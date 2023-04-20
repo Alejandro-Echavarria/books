@@ -16,6 +16,9 @@ class Book extends Model
         'date_published',
     ];
 
+    protected $allowSort = ['id', 'name', 'price', 'date_published'];
+    protected $allowFilter = ['id', 'name', 'price', 'date_published'];
+
     protected $casts = [
         'date_published' => 'date',
     ];
